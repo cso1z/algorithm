@@ -23,7 +23,7 @@ public class Rotate {
         for (int i = 0; i < reallyRotateTime; i++) {
             int currentMoveIndex = length - 1;
             currentValue = nums[currentMoveIndex];
-            System.arraycopy(nums, 0, nums, 1, currentMoveIndex);v
+            System.arraycopy(nums, 0, nums, 1, currentMoveIndex);
             nums[0] = currentValue;
         }
     }

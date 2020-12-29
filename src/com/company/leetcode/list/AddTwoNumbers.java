@@ -1,5 +1,7 @@
 package com.company.leetcode.list;
 
+import java.util.List;
+
 /**
  * 2. 两数相加
  * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
@@ -25,14 +27,55 @@ public class AddTwoNumbers {
             this.val = val;
             this.next = next;
         }
+
+        @Override
+        public String toString() {
+            String str = "";
+            ListNode temp = this;
+            while (temp != null) {
+                str = str + " " + temp.val;
+                temp = temp.next;
+            }
+            return str;
+        }
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        while (l1.next != null) {
-            System.out.println(l1.val);
+        ListNode result = new ListNode();
+        ListNode nextNode = new ListNode();
+        result.next = nextNode;
+        int carry = 0;
+        int currentValue;
+        while (l1 != null && l2 != null) {
+            ListNode temp = new ListNode();
+            currentValue = l1.val + l2.val + carry;
+            carry = currentValue / 10;
+            temp.val = currentValue % 10;
             l1 = l1.next;
+            l2 = l2.next;
+            nextNode.next = temp;
+            nextNode = nextNode.next;
         }
-        return new ListNode();
+        if (l2 != null) {
+            l1 = l2;
+        }
+        while (l1 != null) {
+            if (carry == 0) {
+                nextNode.next = l1;
+                break;
+            }
+            ListNode temp = new ListNode();
+            currentValue = l1.val + carry;
+            carry = currentValue / 10;
+            temp.val = currentValue % 10;
+            l1 = l1.next;
+            nextNode.next = temp;
+            nextNode = nextNode.next;
+        }
+        if (carry != 0) {
+            nextNode.next = new ListNode(carry);
+        }
+        return result.next.next;
     }
 
 

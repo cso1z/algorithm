@@ -17,7 +17,7 @@ public class Main {
     private void addTwoNumbers() {
         main.print("两数相加");
         AddTwoNumbers.ListNode l1 = new AddTwoNumbers.ListNode(2, new AddTwoNumbers.ListNode(4, new AddTwoNumbers.ListNode(3)));
-        AddTwoNumbers.ListNode l2 = new AddTwoNumbers.ListNode(5, new AddTwoNumbers.ListNode(6, new AddTwoNumbers.ListNode(4)));
+        AddTwoNumbers.ListNode l2 = new AddTwoNumbers.ListNode(5, new AddTwoNumbers.ListNode(6, new AddTwoNumbers.ListNode(4,new AddTwoNumbers.ListNode(1))));
         AddTwoNumbers addTwoNumbers = new AddTwoNumbers();
         addTwoNumbers.addTwoNumbers(l1, l2);
     }
