@@ -9,7 +9,7 @@ public class Main {
     static Main main = new Main();
 
     public static void main(String[] args) {
-//        main.removeDuplicates();
+        main.removeDuplicates();
         main.Rotate();
         main.addTwoNumbers();
     }
@@ -17,9 +17,10 @@ public class Main {
     private void addTwoNumbers() {
         main.print("两数相加");
         AddTwoNumbers.ListNode l1 = new AddTwoNumbers.ListNode(2, new AddTwoNumbers.ListNode(4, new AddTwoNumbers.ListNode(3)));
-        AddTwoNumbers.ListNode l2 = new AddTwoNumbers.ListNode(5, new AddTwoNumbers.ListNode(6, new AddTwoNumbers.ListNode(4,new AddTwoNumbers.ListNode(1))));
+        AddTwoNumbers.ListNode l2 = new AddTwoNumbers.ListNode(5, new AddTwoNumbers.ListNode(6, new AddTwoNumbers.ListNode(4, new AddTwoNumbers.ListNode(1))));
         AddTwoNumbers addTwoNumbers = new AddTwoNumbers();
-        addTwoNumbers.addTwoNumbers(l1, l2);
+        AddTwoNumbers.ListNode result = addTwoNumbers.addTwoNumbers(l1, l2);
+        main.print(result.toString());
     }
 
     //删除排序数组中的重复项
@@ -34,13 +35,16 @@ public class Main {
     //旋转数组
     private void Rotate() {
         main.print("旋转数组");
-        int[] origin1 = new int[]{1, 2, 3, 4,};
-        int[] origin2 = new int[]{1, 2, 3, 4};
+        int[] origin1 = new int[]{1, 2, 3, 4, 5, 6, 7};
+        int[] origin2 = new int[]{1, 2, 3, 4, 5, 6, 7};
+        int[] origin3 = new int[]{1, 2, 3, 4, 5, 6, 7};
         Rotate rotate = new Rotate();
-        rotate.rotate1(origin1, 2);
+        rotate.rotate1(origin1, 3);
         main.printArray(origin1, origin1.length);
-        rotate.rotate2(origin2, 2);
+        rotate.rotate2(origin2, 3);
         main.printArray(origin2, origin2.length);
+        rotate.rotate3(origin3, 3);
+        main.printArray(origin3, origin3.length);
     }
 
 

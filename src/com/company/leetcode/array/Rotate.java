@@ -54,8 +54,23 @@ public class Rotate {
         }
     }
 
-    public void rotate3(int[] nums, int k){
+    public void rotate3(int[] nums, int k) {
+        System.out.println("Third Method");
+        int length = nums.length;
+        int reallyRotateTime = k % length;
+        reverse(nums, 0, length - reallyRotateTime);
+        reverse(nums, length - reallyRotateTime, length);
+        reverse(nums, 0, length);
+    }
 
-
+    //翻转数组
+    private void reverse(int[] arrays, int start, int end) {
+        int length = end - start;
+        int temp;
+        for (int i = 0; i < length / 2; i++) {
+            temp = arrays[start + i];
+            arrays[start + i] = arrays[end - i - 1];
+            arrays[end - i - 1] = temp;
+        }
     }
 }
