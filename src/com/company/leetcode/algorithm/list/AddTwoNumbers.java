@@ -20,8 +20,7 @@ public class AddTwoNumbers implements AlgorithmInterface {
         ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));// 2 4 3
         ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4, new ListNode(1))));//5 6 4
 
-        AddTwoNumbers addTwoNumbers = new AddTwoNumbers();
-        ListNode result = addTwoNumbers.addTwoNumbers(l1, l2);
+        ListNode result = addTwoNumbers(l1, l2);
 
         Log.oln("l1：   " + l1.toString());
         Log.oln("l2：   " + l2.toString());

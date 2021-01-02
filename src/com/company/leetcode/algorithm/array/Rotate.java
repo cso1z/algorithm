@@ -22,19 +22,17 @@ public class Rotate implements AlgorithmInterface {
 
         int[] origin2 = new int[]{1, 2, 3, 4, 5, 6, 7};
         int[] origin3 = new int[]{1, 2, 3, 4, 5, 6, 7};
-        Rotate rotate = new Rotate();
 
         Log.o("first:");
-        rotate.rotate1(origin1, 3);
+        rotate1(origin1, 3);
         Log.o(origin1, -1, -1);
 
         Log.o("second:");
-        rotate.rotate2(origin2, 3);
+        rotate2(origin2, 3);
         Log.o(origin2, -1, -1);
 
-        rotate.rotate3(origin3, 3);
+        rotate3(origin3, 3);
         Log.o("third:");
-        rotate.rotate3(origin2, 3);
         Log.o(origin3, -1, -1);
     }
 

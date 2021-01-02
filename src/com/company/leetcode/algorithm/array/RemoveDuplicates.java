@@ -16,13 +16,12 @@ public class RemoveDuplicates implements AlgorithmInterface {
     public void initData() {
         Log.oln("删除排序数组中的重复项:" + getClass().getSimpleName());
 
-        RemoveDuplicates removeDuplicates = new RemoveDuplicates();
         int[] origin = new int[]{1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 5};
 
         Log.o("原始数据：");
         Log.o(origin, -1, -1);
 
-        int endIndex = removeDuplicates.removeDuplicates(origin);
+        int endIndex = removeDuplicates(origin);
 
         Log.o("结果: ");
         Log.o(origin, 0, endIndex);
