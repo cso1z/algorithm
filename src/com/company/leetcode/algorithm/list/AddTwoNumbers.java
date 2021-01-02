@@ -1,6 +1,7 @@
-package com.company.leetcode.list;
+package com.company.leetcode.algorithm.list;
 
-import java.util.List;
+import com.company.leetcode.interfac.AlgorithmInterface;
+import com.company.leetcode.utils.Log;
 
 /**
  * 2. 两数相加
@@ -10,34 +11,21 @@ import java.util.List;
  * 链接：https://leetcode-cn.com/problems/add-two-numbers
  * time: 2020-12-28
  */
-public class AddTwoNumbers {
+public class AddTwoNumbers implements AlgorithmInterface {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
+    @Override
+    public void initData() {
+        Log.oln("两数相加:" + getClass().getSimpleName());
 
-        public ListNode() {
-        }
+        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));// 2 4 3
+        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4, new ListNode(1))));//5 6 4
 
-        public ListNode(int val) {
-            this.val = val;
-        }
+        AddTwoNumbers addTwoNumbers = new AddTwoNumbers();
+        ListNode result = addTwoNumbers.addTwoNumbers(l1, l2);
 
-        public ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            String str = "";
-            ListNode temp = this;
-            while (temp != null) {
-                str = str + " " + temp.val;
-                temp = temp.next;
-            }
-            return str;
-        }
+        Log.oln("l1：   " + l1.toString());
+        Log.oln("l2：   " + l2.toString());
+        Log.oln("result:" + result.toString());
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -79,4 +67,31 @@ public class AddTwoNumbers {
     }
 
 
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        public ListNode() {
+        }
+
+        public ListNode(int val) {
+            this.val = val;
+        }
+
+        public ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+
+        @Override
+        public String toString() {
+            String str = "";
+            ListNode temp = this;
+            while (temp != null) {
+                str = str + " " + temp.val;
+                temp = temp.next;
+            }
+            return str;
+        }
+    }
 }

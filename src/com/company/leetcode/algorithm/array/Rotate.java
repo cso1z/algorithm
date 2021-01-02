@@ -1,4 +1,7 @@
-package com.company.leetcode.array;
+package com.company.leetcode.algorithm.array;
+
+import com.company.leetcode.interfac.AlgorithmInterface;
+import com.company.leetcode.utils.Log;
 
 /**
  * 旋转数组
@@ -8,15 +11,35 @@ package com.company.leetcode.array;
  * url: https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2skh7/
  * time: 2020-12-27
  */
-public class Rotate {
+public class Rotate implements AlgorithmInterface {
 
-    public void rotate(int[] nums, int k) {
-        rotate1(nums, k);
-        rotate2(nums, k);
+    @Override
+    public void initData() {
+        Log.oln("旋转数组：" + getClass().getSimpleName());
+        Log.o("origin:");
+        int[] origin1 = new int[]{1, 2, 3, 4, 5, 6, 7};
+        Log.o(origin1, -1, -1);
+
+        int[] origin2 = new int[]{1, 2, 3, 4, 5, 6, 7};
+        int[] origin3 = new int[]{1, 2, 3, 4, 5, 6, 7};
+        Rotate rotate = new Rotate();
+
+        Log.o("first:");
+        rotate.rotate1(origin1, 3);
+        Log.o(origin1, -1, -1);
+
+        Log.o("second:");
+        rotate.rotate2(origin2, 3);
+        Log.o(origin2, -1, -1);
+
+        rotate.rotate3(origin3, 3);
+        Log.o("third:");
+        rotate.rotate3(origin2, 3);
+        Log.o(origin3, -1, -1);
     }
 
+
     public void rotate1(int[] nums, int k) {
-        System.out.println("First Method");
         int length = nums.length;
         int reallyRotateTime = k % length;
         int currentValue;
@@ -29,7 +52,6 @@ public class Rotate {
     }
 
     public void rotate2(int[] nums, int k) {
-        System.out.println("Second Method");
         int length = nums.length;
         int reallyRotateTime = k % length;
         int splitIndex = length - reallyRotateTime;
@@ -55,7 +77,6 @@ public class Rotate {
     }
 
     public void rotate3(int[] nums, int k) {
-        System.out.println("Third Method");
         int length = nums.length;
         int reallyRotateTime = k % length;
         reverse(nums, 0, length - reallyRotateTime);
@@ -73,4 +94,6 @@ public class Rotate {
             arrays[end - i - 1] = temp;
         }
     }
+
+
 }

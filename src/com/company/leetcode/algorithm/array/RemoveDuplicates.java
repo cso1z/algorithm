@@ -1,4 +1,7 @@
-package com.company.leetcode.array;
+package com.company.leetcode.algorithm.array;
+
+import com.company.leetcode.interfac.AlgorithmInterface;
+import com.company.leetcode.utils.Log;
 
 /**
  * 删除排序数组中的重复项
@@ -7,7 +10,24 @@ package com.company.leetcode.array;
  * url:https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2gy9m/
  * time: 2020-12-27
  */
-public class RemoveDuplicates {
+public class RemoveDuplicates implements AlgorithmInterface {
+
+    @Override
+    public void initData() {
+        Log.oln("删除排序数组中的重复项:" + getClass().getSimpleName());
+
+        RemoveDuplicates removeDuplicates = new RemoveDuplicates();
+        int[] origin = new int[]{1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 5};
+
+        Log.o("原始数据：");
+        Log.o(origin, -1, -1);
+
+        int endIndex = removeDuplicates.removeDuplicates(origin);
+
+        Log.o("结果: ");
+        Log.o(origin, 0, endIndex);
+    }
+
     public int removeDuplicates(int[] nums) {
         int j = 1;
         for (int i = 1; i < nums.length; i++) {
