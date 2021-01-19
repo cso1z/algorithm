@@ -24,16 +24,17 @@ public class Reverse implements AlgorithmInterface {
         if (x == 0) {
             return 0;
         }
-        int result = 0;
+        long result = 0;
+        long temp = 0;
         while (x != 0) {
-            if (result * 10 + x % 10 <= Integer.MAX_VALUE - 1 && result >= Integer.MIN_VALUE + 1) {
-                result = result * 10 + x % 10;
+            temp = result * 10 + x % 10;
+            if (temp <= Integer.MAX_VALUE - 1 && temp >= Integer.MIN_VALUE + 1) {
+                result = temp;
             } else {
                 return 0;
             }
-            Log.oln(result);
             x = x / 10;
         }
-        return result;
+        return (int) result;
     }
 }

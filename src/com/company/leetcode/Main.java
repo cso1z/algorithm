@@ -24,6 +24,7 @@ public class Main {
                     setMethod.invoke(clazz.newInstance());
                     Log.wrap();
                 } catch (Exception e) {
+                    Log.o("error:" + className);
                     e.printStackTrace();
                 }
             }
