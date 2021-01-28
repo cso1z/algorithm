@@ -17,8 +17,8 @@ public class ContainsDuplicate implements AlgorithmInterface {
     @Override
     public void initData() {
         Log.oln("存在重复元素:" + getClass().getSimpleName());
-        int[] origin = {1, 2, 3, 1};
-        Log.o("原始數據：");
+        int[] origin = {1};
+        Log.o("原始数据：");
         Log.o(origin, -1, -1);
         Log.oln("結果：" + containsDuplicate(origin));
     }
@@ -26,7 +26,7 @@ public class ContainsDuplicate implements AlgorithmInterface {
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> resultSet = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
-            if (resultSet.add(nums[i])) {
+            if (!resultSet.add(nums[i])) {
                 return true;
             }
         }

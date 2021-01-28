@@ -24,15 +24,21 @@ public class Intersect implements AlgorithmInterface {
         Log.o(origin1, -1, -1);
         Log.o("数组2：");
         Log.o(origin2, -1, -1);
+        Log.o("first Method: ");
         Log.o(intersect1(origin1, origin2), -1, -1);
+        Log.o("second Method: ");
+        Log.o(intersect2(origin1, origin2), -1, -1);
+
     }
 
     private int[] intersect1(int[] nums1, int[] nums2) {
         List<Integer> resultList = new ArrayList<>();
+        int lastJStartIndex = 0;
         for (int i = 0; i < nums1.length; i++) {
-            for (int j = 0; j < nums2.length; j++) {
+            for (int j = lastJStartIndex; j < nums2.length; j++) {
                 if (nums1[i] == nums2[j]) {
                     nums2[j] = Integer.MAX_VALUE;
+                    lastJStartIndex = j;
                     resultList.add(nums1[i]);
                     break;
                 }
@@ -46,7 +52,29 @@ public class Intersect implements AlgorithmInterface {
         return result;
     }
 
-    private void intersect2(int[] nums1, int[] nums2) {
-
+    private int[] intersect2(int[] nums1, int[] nums2) {
+        if (nums1.length > nums2.length) {
+            return intersect2(nums2, nums1);
+        }
+        Map<Integer, Integer> nums1Map = new HashMap<>();
+        Integer numSize;
+        for (int num : nums1) {
+            numSize = nums1Map.get(num);
+            nums1Map.put(num, numSize != null ? numSize + 1 : 1);
+        }
+        List<Integer> resultList = new ArrayList<>();
+        for (int num : nums2) {
+            numSize = nums1Map.get(num);
+            if (numSize != null && numSize != 0) {
+                nums1Map.put(num, numSize - 1);
+                resultList.add(num);
+            }
+        }
+        int[] result = new int[resultList.size()];
+        int i = 0;
+        for (Integer integer : resultList) {
+            result[i++] = integer;
+        }
+        return result;
     }
 }
