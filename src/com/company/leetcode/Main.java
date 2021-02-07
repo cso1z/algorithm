@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Main {
 
-    private static List<String> fileList = new ArrayList<>();
+    private static final List<String> fileList = new ArrayList<>();
 
     public static void main(String[] args) {
 
