@@ -34,32 +34,25 @@ public class IsValidSudoku implements AlgorithmInterface {
                 , {'1', '6', '1', '1', '1', '1', '2', '8', '1'}
                 , {'1', '1', '1', '4', '1', '9', '1', '1', '5'}
                 , {'1', '1', '1', '1', '8', '1', '1', '7', '9'}};
-        isValidSudoku(board);
+        Log.oln("result:"+isValidSudoku(board));
         Log.oln("\n");
     }
 
-    static Map<Integer, Integer> map;
+    static BoardValue[] list;
 
     static {
-        map = new HashMap();
-        map.put((int) '1', 0x1);
-        map.put((int) '2', 0x1 << 1);
-        map.put((int) '3', 0x1 << 2);
-        map.put((int) '4', 0x1 << 3);
-        map.put((int) '5', 0x1 << 4);
-        map.put((int) '6', 0x1 << 5);
-        map.put((int) '7', 0x1 << 6);
-        map.put((int) '8', 0x1 << 7);
-        map.put((int) '9', 0x1 << 8);
+        list = new BoardValue[27];
+        for (int i = 0; i < list.length; i++) {
+            list[i] = new BoardValue();
+        }
     }
 
-    Map<Integer, BoardValue> list = new HashMap<>();
 
     public boolean isValidSudoku(char[][] board) {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (board[i][j] != '.') {
-                    int value = map.get((int) board[i][j]);
+                    int value = 0x1 << (board[i][j] - 1);
                     if (!addValue(i, value)) {
                         return false;
                     }
@@ -73,8 +66,8 @@ public class IsValidSudoku implements AlgorithmInterface {
                 }
             }
         }
-        for (BoardValue boardValue : list.values()) {
-            if (!boardValue.isEqual()) {
+        for (int i=0;i<list.length;i++) {
+            if (!list[i].isEqual()) {
                 return false;
             }
         }
@@ -82,25 +75,20 @@ public class IsValidSudoku implements AlgorithmInterface {
     }
 
     private boolean addValue(int index, int value) {
-        BoardValue temp = list.get(index);
-        if (temp == null) {
-            temp = new BoardValue(value, value);
-            list.put(index, temp);
-        } else {
-            temp.normalValue += value;
-            temp.eorValue ^= value;
-        }
+        BoardValue temp = list[index];
+        temp.normalValue += value;
+        temp.eorValue ^= value;
         return temp.isEqual();
     }
 
 
     public static class BoardValue {
-        int normalValue;
-        int eorValue;
+        private final int defaultValue = 0x1 << 9;
+        int normalValue = defaultValue;
+        int eorValue = defaultValue;
 
-        public BoardValue(int normalValue, int eorValue) {
-            this.normalValue = normalValue;
-            this.eorValue = eorValue;
+        public BoardValue() {
+
         }
 
         public boolean isEqual() {
