@@ -22,6 +22,7 @@ import java.util.Map;
  * time:2021-04-16
  */
 public class IsValidSudoku implements AlgorithmInterface {
+
     @Override
     public void initData() {
         Log.oln("LC 有效的数独:" + getClass().getSimpleName());
@@ -34,21 +35,17 @@ public class IsValidSudoku implements AlgorithmInterface {
                 , {'1', '6', '1', '1', '1', '1', '2', '8', '1'}
                 , {'1', '1', '1', '4', '1', '9', '1', '1', '5'}
                 , {'1', '1', '1', '1', '8', '1', '1', '7', '9'}};
-        Log.oln("result:"+isValidSudoku(board));
+        Log.oln("result:" + isValidSudoku(board));
         Log.oln("\n");
     }
 
-    static BoardValue[] list;
+    private BoardValue[] list;
 
-    static {
+    public boolean isValidSudoku(char[][] board) {
         list = new BoardValue[27];
         for (int i = 0; i < list.length; i++) {
             list[i] = new BoardValue();
         }
-    }
-
-
-    public boolean isValidSudoku(char[][] board) {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (board[i][j] != '.') {
@@ -66,7 +63,7 @@ public class IsValidSudoku implements AlgorithmInterface {
                 }
             }
         }
-        for (int i=0;i<list.length;i++) {
+        for (int i = 0; i < list.length; i++) {
             if (!list[i].isEqual()) {
                 return false;
             }
