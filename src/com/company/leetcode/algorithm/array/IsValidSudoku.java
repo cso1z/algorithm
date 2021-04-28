@@ -63,11 +63,6 @@ public class IsValidSudoku implements AlgorithmInterface {
                 }
             }
         }
-        for (int i = 0; i < list.length; i++) {
-            if (!list[i].isEqual()) {
-                return false;
-            }
-        }
         return true;
     }
 
@@ -77,7 +72,6 @@ public class IsValidSudoku implements AlgorithmInterface {
         temp.eorValue ^= value;
         return temp.isEqual();
     }
-
 
     public static class BoardValue {
         private final int defaultValue = 0x1 << 9;
