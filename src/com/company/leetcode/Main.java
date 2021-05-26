@@ -1,5 +1,6 @@
 package com.company.leetcode;
 
+import com.company.leetcode.interfac.AlgorithmInterface;
 import com.company.leetcode.utils.Log;
 
 import java.io.File;
@@ -20,9 +21,11 @@ public class Main {
             for (String className : fileList) {
                 try {
                     Class clazz = Class.forName(className);
-                    Method setMethod = clazz.getDeclaredMethod("initData");
-                    setMethod.invoke(clazz.newInstance());
-                    Log.wrap();
+                    if (AlgorithmInterface.class.isAssignableFrom(clazz)) {
+                        Method setMethod = clazz.getDeclaredMethod("initData");
+                        setMethod.invoke(clazz.newInstance());
+                        Log.wrap();
+                    }
                 } catch (Exception e) {
                     Log.o("error:" + className);
                     e.printStackTrace();
