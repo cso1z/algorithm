@@ -15,7 +15,7 @@ public class SortedArrayToBST implements AlgorithmInterface {
     @Override
     public void initData() {
         Log.oln("将有序数组转换为二叉搜索树:" + getClass().getSimpleName());
-        int[] data = {1, 2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        int[] data = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
         TreeNode node = sortedArrayToBST(data);
         TreeHelper.getInstance().printTree(node);
     }
