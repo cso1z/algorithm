@@ -22,9 +22,17 @@ public class AddTwoNumbers implements AlgorithmInterface {
 
         ListNode result = addTwoNumbers(l1, l2);
 
-        Log.oln("l1：   " + l1.toString());
-        Log.oln("l2：   " + l2.toString());
-        Log.oln("result:" + result.toString());
+        Log.o("l1:");
+        ListHelper.getInstance().printNodeList(l1);
+        Log.wrap();
+
+        Log.o("l2:");
+        ListHelper.getInstance().printNodeList(l2);
+        Log.wrap();
+
+        Log.o("result:");
+        ListHelper.getInstance().printNodeList(result);
+        Log.wrap();
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
