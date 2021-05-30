@@ -1,4 +1,4 @@
-package com.company.leetcode.vo;
+package com.company.leetcode.algorithm.list;
 
 public class ListNode {
     public int val;

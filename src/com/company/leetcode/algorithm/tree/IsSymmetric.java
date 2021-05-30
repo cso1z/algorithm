@@ -18,7 +18,7 @@ import com.company.leetcode.utils.Log;
 public class IsSymmetric implements AlgorithmInterface {
     @Override
     public void initData() {
-        Log.oln("对称二叉树" + getClass().getSimpleName());
+        Log.oln("对称二叉树:" + getClass().getSimpleName());
         Integer[] data = {1, 2, 2, null, 3, null, 3};
         TreeNode root = TreeHelper.getInstance().arrayToTree(data);
         TreeHelper.getInstance().printTree(root);

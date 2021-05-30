@@ -13,8 +13,8 @@ import com.company.leetcode.utils.Log;
 public class Reverse implements AlgorithmInterface {
     @Override
     public void initData() {
-        Log.oln("整数反转" + getClass().getSimpleName());
-        int origin = 1534236469;
+        Log.oln("整数反转：" + getClass().getSimpleName());
+        int origin = 15342364;
         Log.oln("原始数据：" + origin);
         int result = reverse(origin);
         Log.oln("结果：" + result);

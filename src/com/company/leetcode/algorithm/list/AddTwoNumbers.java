@@ -2,7 +2,6 @@ package com.company.leetcode.algorithm.list;
 
 import com.company.leetcode.interfac.AlgorithmInterface;
 import com.company.leetcode.utils.Log;
-import com.company.leetcode.vo.ListNode;
 
 /**
  * 2. 两数相加

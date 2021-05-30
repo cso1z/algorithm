@@ -17,9 +17,9 @@ import com.company.leetcode.utils.Log;
 public class Zconvert implements AlgorithmInterface {
     @Override
     public void initData() {
-        Log.o("Z 字形变换" + getClass().getSimpleName());
+//        Log.o("Z 字形变换：" + getClass().getSimpleName());
         String origin = "0123456789";
-        Log.oln("原始数据：" + origin);
+//        Log.oln("原始数据：" + origin);
     }
 
     public String convert(String s, int numRows) {

@@ -17,7 +17,7 @@ import java.util.*;
 public class Intersect implements AlgorithmInterface {
     @Override
     public void initData() {
-        Log.oln("两个数组的交集 II" + getClass().getSimpleName());
+        Log.oln("两个数组的交集 II：" + getClass().getSimpleName());
         int[] origin1 = {4, 9, 5};
         int[] origin2 = {9, 4, 9, 8, 4};
         Log.o("数组1：");
