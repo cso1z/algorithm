@@ -17,9 +17,15 @@ public class DeleteNode implements AlgorithmInterface {
     @Override
     public void initData() {
         Log.oln("删除链表中的节点:" + getClass().getSimpleName());
+        Integer[] data = {1, 2, 3, 4, 5, 6, 7};
+        ListNode headNode = ListHelper.getInstance().arrayToList(data);
+        ListHelper.getInstance().printNodeList(headNode);
     }
 
     public void deleteNode(ListNode node) {
-
+        if(node!=null&&node.next!=null){
+            node.val=node.next.val;
+            node.next=node.next.next;
+        }
     }
 }
