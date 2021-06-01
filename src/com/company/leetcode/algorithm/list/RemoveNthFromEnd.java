@@ -14,16 +14,17 @@ public class RemoveNthFromEnd implements AlgorithmInterface {
     @Override
     public void initData() {
         Log.oln("删除链表的倒数第N个节点:" + getClass().getSimpleName());
-        Integer[] data = {1, 2, 3, 4, 5, 6, 7};
+        Integer[] data = {1, 2, 3};
         ListNode dataNode = ListHelper.getInstance().arrayToList(data);
 
         Log.o("原始数据：");
         ListHelper.getInstance().printNodeList(dataNode);
         Log.wrap();
 
-        Log.o("删除第2个节点：");
+        int i = 3;
+        Log.o(String.format("删除倒数第%d个节点：", i));
 
-        ListNode resultNode = removeNthFromEnd(dataNode, 1);
+        ListNode resultNode = removeNthFromEnd(dataNode, i);
 
         ListHelper.getInstance().printNodeList(resultNode);
         Log.wrap();
@@ -36,16 +37,14 @@ public class RemoveNthFromEnd implements AlgorithmInterface {
         while (pointerNode != null) {
             pointerNode = pointerNode.next;
             index++;
-            if (index > n) {
+            if (index > n + 1) {
                 nthNode = nthNode.next;
             }
         }
-        Log.oln("node:" + nthNode.val);
-        if (n > 1) {
-            nthNode.val = nthNode.next.val;
+        if (index >= n + 1) {
             nthNode.next = nthNode.next.next;
         } else {
-            nthNode = null;
+            head = head.next;
         }
         return head;
     }

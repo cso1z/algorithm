@@ -23,7 +23,7 @@ public class DeleteNode implements AlgorithmInterface {
         Log.o("原始数据：");
         ListHelper.getInstance().printNodeList(headNode);
 
-        ListNode deleteNode = headNode;
+        ListNode deleteNode = headNode.next.next.next;
 
         Log.o("\n删除Node:" + deleteNode.val);
 
