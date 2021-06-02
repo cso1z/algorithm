@@ -7,7 +7,7 @@ import com.company.leetcode.utils.Log;
 import java.util.List;
 
 public class ListHelper {
-    static ListHelper helper;
+    private static ListHelper helper;
 
     private ListHelper() {
 
