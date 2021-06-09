@@ -21,12 +21,12 @@ class IsAnagram : AlgorithmInterface {
         Log.oln("结果：${isAnagram(data1, data2)}")
     }
 
-    fun isAnagram(s: String, t: String): Boolean {
+    private fun isAnagram(s: String, t: String): Boolean {
         if (s.length != t.length) {
             return false
         }
         val map: MutableMap<Char, Int> = mutableMapOf()
-        for (index in 0 until s.length) {
+        for (index in s.indices) {
             if (map.containsKey(s[index])) {
                 map[s[index]] = map.getValue(s[index]) + 1
             } else {
