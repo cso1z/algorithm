@@ -1,4 +1,4 @@
-package com.company.leetcode.algorithm.sundry;
+package com.company.leetcode.algorithm.chars;
 
 import com.company.leetcode.interfac.AlgorithmInterface;
 import com.company.leetcode.utils.Log;
