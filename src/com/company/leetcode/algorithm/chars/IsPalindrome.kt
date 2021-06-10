@@ -36,6 +36,6 @@ class IsPalindrome : AlgorithmInterface {
                 return false
             }
         }
-        return endIndex - firstIndex <= 0
+        return true
     }
 }
