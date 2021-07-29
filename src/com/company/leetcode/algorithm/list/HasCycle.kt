@@ -1,6 +1,5 @@
 package com.company.leetcode.algorithm.list
 
-import com.company.leetcode.algorithm.test.Person
 import com.company.leetcode.interfac.AlgorithmInterface
 import com.company.leetcode.utils.Log
 

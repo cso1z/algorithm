@@ -23,6 +23,7 @@ public class Main {
                     Class clazz = Class.forName(className);
                     if (AlgorithmInterface.class.isAssignableFrom(clazz)) {
                         Method setMethod = clazz.getDeclaredMethod("initData");
+                        setMethod.setAccessible(true);
                         setMethod.invoke(clazz.newInstance());
                         Log.wrap();
                     }
